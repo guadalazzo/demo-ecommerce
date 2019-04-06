@@ -8,17 +8,17 @@ class SearchBar extends React.Component {
     };
   }
   handleChange(e){
-    this.setState({
-      query: e.target.value,
-    });
+    // this.setState({
+    //   query: e.target.value,
+    // });
+    this.props.change(e.target.value);
   }
   handleClick(){
-    console.log(this.state.query);
-    this.props.click(this.state.query);
+    this.props.click(this.props.query);
   }
   render() {
     return (
-      <>
+      <header>
         <input 
           onChange={(e) => this.handleChange(e)} 
           type="text" 
@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
         /> <button onClick={() => this.handleClick()}>
           Enviar
         </button>
-      </>
+      </header>
     )
   }
 }
